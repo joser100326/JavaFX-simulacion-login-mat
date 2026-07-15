@@ -53,6 +53,25 @@ public class SceneManager {
         }   
 
     }
+        public void ventanaBienvenida(){
+      try{
+            escenarioSecundario = new Stage();
+            this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+             this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+             BienvenidaView bienvenida = new BienvenidaView();
+             escenaPrincipal = new Scene( )
+             
+             
+        }catch (NullPointerException objetoNulo ){
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: ventana Login ");
+            objetoNulo . printStackTrace(); //imprime todo el camino hacia el error
+            }catch (Exception errorPadre){
+                JOptionPane.showMessageDialog(null, "Error padre: Ventana Login");
+                errorPadre. printStackTrace();
+        }   
+
+    }
+    
 
  
     public static SceneManager getInstanciaSceneManager() {

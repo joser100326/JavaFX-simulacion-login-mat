@@ -23,6 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
+
 public class LoginView extends BorderPane {
     private static LoginView instanciaLoginView;
     private HBox barraDeVentana;
@@ -37,9 +38,10 @@ public class LoginView extends BorderPane {
     private GridPane formulario;
     private Button btnIniciarSesion;
     private VBox cajaVertical;
-    
+    private final String RUTA_ESTILOS = "/com/joserosales/styles/";
     
     private LoginView(){
+        this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
         this.setPadding( new Insets(20) );
         //Colocar bordes con objetos
         this.setBorder( new Border(
@@ -50,7 +52,7 @@ public class LoginView extends BorderPane {
         ));
         //Colocar fondo con objetos
         this.setBackground(new Background(
-        new BackgroundFill(Paint.valueOf("#AFC06A"), //Color del fondo
+        new BackgroundFill(Paint.valueOf("#FCC6BB"), //Color del fondo
         new CornerRadii(25), //Pixeles de redondeado, las esquinas
         Insets.EMPTY)   //Espaciado del fondo
         ));

@@ -1,0 +1,31 @@
+TextField.error{
+    
+    -fx-border-color:red;
+    -fx-border-width:2px;
+    
+}
+
+PasswordField.error{
+    -fx-border-color:red;
+    -fx-border-width:2px;
+}
+
+TextField.empty{
+    -fx-border-color:orange;
+    -fx-border-width:2px;
+}
+
+PasswordField.empty{
+    -fx-border-color:orange;
+    -fx-border-width:2px;
+}
+
+
+
+
+
+
+
+
+
+
