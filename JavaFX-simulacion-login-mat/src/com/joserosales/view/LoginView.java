@@ -23,13 +23,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
-
 public class LoginView extends BorderPane {
+
     private static LoginView instanciaLoginView;
     private HBox barraDeVentana;
     private Button btnCerrarVentana;
     private Label lblTituloVentana;
-    
+
     private ImageView imgLogoLogin;
     private TextField txtNombreUsuario;
     private Label lblNombreUsuario;
@@ -39,78 +39,74 @@ public class LoginView extends BorderPane {
     private Button btnIniciarSesion;
     private VBox cajaVertical;
     private final String RUTA_ESTILOS = "/com/joserosales/styles/";
-    
-    private LoginView(){
+
+    private LoginView() {
         this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
-        this.setPadding( new Insets(20) );
+        this.setPadding(new Insets(20));
         //Colocar bordes con objetos
-        this.setBorder( new Border(
-                new BorderStroke( Color.DARKBLUE, // Color del borde
-                BorderStrokeStyle.SOLID, //Estilo de linea
-                new CornerRadii(22), //Pixeles de redondeado
-                new BorderWidths(2))    //Ancho del borde 
+        this.setBorder(new Border(
+                new BorderStroke(Color.DARKBLUE, // Color del borde
+                        BorderStrokeStyle.SOLID, //Estilo de linea
+                        new CornerRadii(22), //Pixeles de redondeado
+                        new BorderWidths(2)) //Ancho del borde 
         ));
         //Colocar fondo con objetos
         this.setBackground(new Background(
-        new BackgroundFill(Paint.valueOf("#FCC6BB"), //Color del fondo
-        new CornerRadii(25), //Pixeles de redondeado, las esquinas
-        Insets.EMPTY)   //Espaciado del fondo
+                new BackgroundFill(Paint.valueOf("#FCC6BB"), //Color del fondo
+                        new CornerRadii(25), //Pixeles de redondeado, las esquinas
+                        Insets.EMPTY) //Espaciado del fondo
         ));
-        
+
         barraDeVentana = new HBox(20);
         btnCerrarVentana = new Button("X");
         lblTituloVentana = new Label("JavaFX - Mat - Simulador Login");
-        
+
         barraDeVentana.getChildren().addAll(btnCerrarVentana, lblTituloVentana);
-       
-        this.setTop( barraDeVentana );
+
+        this.setTop(barraDeVentana);
 
         cajaVertical = new VBox(15);
-        
+
         formulario = new GridPane();
-        
+
         lblNombreUsuario = new Label("Ingrese su nombre de usuario");
         txtNombreUsuario = new TextField();
-        
+
         lblClave = new Label("Ingrese su contrasena");
         pwdClave = new PasswordField();
-        
-        
+
         formulario.add(lblNombreUsuario, 0, 0);
         formulario.add(txtNombreUsuario, 1, 0);
-        
+
         formulario.add(lblClave, 0, 1);
         formulario.add(pwdClave, 1, 1);
-        
+
         btnIniciarSesion = new Button("Iniciar Sesion");
-        
-        
-        
-        imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo") );
+
+        imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo"));
         imgLogoLogin.setFitHeight(100);
         imgLogoLogin.setFitWidth(100);
         imgLogoLogin.setCache(true);
-        
+
         cajaVertical.setAlignment(Pos.CENTER);
-        
+
         cajaVertical.getChildren().addAll(
                 imgLogoLogin,
                 formulario,
                 btnIniciarSesion
         );
-        
-        
+
         this.setCenter(cajaVertical);
 
-
     }
- 
+
     public static LoginView getInstanciaLoginView() {
-        if( instanciaLoginView == null )
+        if (instanciaLoginView == null) {
             instanciaLoginView = new LoginView();
+        }
         return instanciaLoginView;
     }
- 
+
     public static void setInstanciaLoginView(LoginView instanciaLoginView) {
         LoginView.instanciaLoginView = instanciaLoginView;
     }
@@ -203,10 +199,4 @@ public class LoginView extends BorderPane {
         this.cajaVertical = cajaVertical;
     }
 
-   
-    
-    
-    
-    
 }
-

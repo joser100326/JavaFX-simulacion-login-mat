@@ -65,19 +65,20 @@ public class LoginController {
             this.LOGIN_VIEW.getPwdClave().getStyleClass().add("empty");
             JOptionPane.showMessageDialog(null,
                     "No deje el campo Contrasena vacio");
-            
+
         } else {
             this.LOGIN_VIEW.getPwdClave().getStyleClass().remove("empty");
             Usuario usuario = authSistema.login(nombreUsuario, clave);
-            if (usuario  == null) {
+            if (usuario == null) {
                 this.LOGIN_VIEW.getTxtNombreUsuario().getStyleClass().add("error");
                 this.LOGIN_VIEW.getPwdClave().getStyleClass().add("error");
                 JOptionPane.showMessageDialog(null, "Valide sus credenciales");
             } else {
                 this.LOGIN_VIEW.getTxtNombreUsuario().getStyleClass().remove("error");
                 this.LOGIN_VIEW.getPwdClave().getStyleClass().remove("error");
-                JOptionPane.showMessageDialog(null, "Holas");
-                SceneManager.getInstanciaSceneManager().ventanaBienvenida();
+
+                // Enviamos el usuario autenticado al SceneManager para abrir la bienvenida
+                SceneManager.getInstanciaSceneManager().ventanaBienvenida(usuario);
             }
         }
 
